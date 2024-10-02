@@ -1,0 +1,2 @@
+python manage.py loaddata regions.json
+python manage.py loaddata district.json

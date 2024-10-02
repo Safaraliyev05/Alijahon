@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "ali-jahon"
+version = "0.1.0"
+description = ""
+authors = ["Safaraliyev05 <uzblordsardorboy0705@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.1.1"
+django-ckeditor-5 = "^0.2.13"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
