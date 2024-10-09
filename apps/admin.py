@@ -11,6 +11,11 @@ from apps.models.proxy import DriverUserProxy, OperatorUserProxy, ManagerUserPro
 site.unregister(Group)
 
 
+class ProductNameMixin:
+    def get_product_name(self, obj):
+        return obj.product.name
+
+
 class CustomUserAdmin(UserAdmin):
     fieldsets = (
         (None, {"fields": ("phone", "password")}),
@@ -54,7 +59,7 @@ class CategoryModelAdmin(ModelAdmin):
 
 @register(DriverUserProxy)
 class DriverUserProxyAdmin(CustomUserAdmin):
-    pass
+    list_display = ("id",)
 
 
 @register(OperatorUserProxy)
@@ -78,45 +83,45 @@ class UserProxyAdmin(CustomUserAdmin):
 
 
 @register(OrderProxy)
-class OrderProxyAdmin(ModelAdmin):
-    pass
+class OrderProxyAdmin(ModelAdmin, ProductNameMixin):
+    list_display = ("id", "get_product_name", "status")
 
 
 @register(NewOrderProxy)
-class NewOrderProxyAdmin(ModelAdmin):
-    pass
+class NewOrderProxyAdmin(ModelAdmin, ProductNameMixin):
+    list_display = ("id", "get_product_name", "status")
 
 
 @register(ReadyOrderProxy)
-class ReadyOrderProxyAdmin(ModelAdmin):
-    pass
+class ReadyOrderProxyAdmin(ModelAdmin, ProductNameMixin):
+    list_display = ("id", "get_product_name", "status")
 
 
 @register(DeliverOrderProxy)
-class DeliverOrderProxyAdmin(ModelAdmin):
-    pass
+class DeliverOrderProxyAdmin(ModelAdmin, ProductNameMixin):
+    list_display = ("id", "get_product_name", "status")
 
 
 @register(CantPhoneOrderProxy)
-class CantPhoneOrderProxyAdmin(ModelAdmin):
-    pass
+class CantPhoneOrderProxyAdmin(ModelAdmin, ProductNameMixin):
+    list_display = ("id", "get_product_name", "status")
 
 
 @register(CanceledOrderProxy)
-class CanceledOrderProxyAdmin(ModelAdmin):
-    pass
+class CanceledOrderProxyAdmin(ModelAdmin, ProductNameMixin):
+    list_display = ("id", "get_product_name", "status")
 
 
 @register(ReturnedOrderProxy)
-class ReturnedOrderProxyAdmin(ModelAdmin):
-    pass
+class ReturnedOrderProxyAdmin(ModelAdmin, ProductNameMixin):
+    list_display = ("id", "get_product_name", "status")
 
 
 @register(ArchivedOrderProxy)
-class ArchivedOrderProxyAdmin(ModelAdmin):
-    pass
+class ArchivedOrderProxyAdmin(ModelAdmin, ProductNameMixin):
+    list_display = ("id", "get_product_name", "status")
 
 
 @register(HoldOrderProxy)
-class HoldOrderProxyAdmin(ModelAdmin):
-    pass
+class HoldOrderProxyAdmin(ModelAdmin, ProductNameMixin):
+    list_display = ("id", "get_product_name", "status")

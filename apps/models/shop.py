@@ -69,9 +69,15 @@ class Stream(TimeBaseModel):
     product = ForeignKey('apps.Product', CASCADE, verbose_name="Oqimning Mahsuloti")
     visit_count = PositiveIntegerField(verbose_name='Tashriflar Soni', default=0)
 
+    def __str__(self):
+        return self.name
+
 
 class Competition(TimeBaseModel):
     started_at = DateField(verbose_name='Konkurs Boshlanish Vaqti')
     ended_at = DateField(verbose_name='Konkurs Yakunlanish Vaqti')
     image = ImageField(verbose_name='Konkurs Uchun Rasm', upload_to='competition/')
     description = CKEditor5Field(verbose_name='Konkurs Uchun Tavsif')
+
+    def __str__(self):
+        return self.description

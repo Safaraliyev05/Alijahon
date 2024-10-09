@@ -32,10 +32,16 @@ class User(AbstractUser):
 class Region(Model):
     name = CharField(verbose_name="Viloyat Nomi", max_length=255)
 
+    def __str__(self):
+        return self.name
+
 
 class District(Model):
     name = CharField(verbose_name="Tuman Nomi", max_length=255)
     region = ForeignKey('apps.Region', CASCADE, verbose_name="Viloyat")
+
+    def __str__(self):
+        return self.name
 
 
 class SiteSettings(Model):
