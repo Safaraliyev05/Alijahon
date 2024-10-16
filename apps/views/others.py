@@ -1,4 +1,4 @@
-from django.views.generic import DetailView, TemplateView
+from django.views.generic import TemplateView, ListView
 
 from apps.models import Competition
 
@@ -7,9 +7,7 @@ class PaymentTemplateView(TemplateView):
     template_name = 'apps/admin-page/payment.html'
 
 
-class CompetitionListView(DetailView):
+class CompetitionListView(ListView):
     model = Competition
     template_name = 'apps/admin-page/competition.html'
-
-    def get_object(self, queryset=None):
-        return '1'
+    context_object_name = 'competitions'

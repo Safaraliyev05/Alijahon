@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from apps.models import ProductProxy, CategoryProxy
 from apps.models.proxy import DriverUserProxy, OperatorUserProxy, ManagerUserProxy, UserProxy, AdminUserProxy, \
     OrderProxy, NewOrderProxy, ReadyOrderProxy, DeliverOrderProxy, CantPhoneOrderProxy, \
-    CanceledOrderProxy, ReturnedOrderProxy, ArchivedOrderProxy, HoldOrderProxy
+    CanceledOrderProxy, ReturnedOrderProxy, ArchivedOrderProxy, HoldOrderProxy, CompetitionProxy
 
 site.unregister(Group)
 
@@ -55,6 +55,11 @@ class ProductProxyModelAdmin(ModelAdmin):
 @register(CategoryProxy)
 class CategoryModelAdmin(ModelAdmin):
     list_display = ("id", "name")
+
+
+@register(CompetitionProxy)
+class CompetitionModelAdmin(ModelAdmin):
+    list_display = ("id", "description")
 
 
 @register(DriverUserProxy)

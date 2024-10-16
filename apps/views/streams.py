@@ -23,7 +23,6 @@ class StreamListView(LoginRequiredMixin, ListView):
         return qs
 
 
-# 15
 class StreamProductDetailView(DetailView, CreateView):
     model = Stream
     template_name = 'apps/product/product-detail.html'
@@ -43,7 +42,6 @@ class StreamProductDetailView(DetailView, CreateView):
         return redirect('success_product', pk=order.pk)
 
 
-# 16
 class StreamCreateView(CreateView):
     model = Stream
     template_name = 'apps/admin-page/market.html'
@@ -60,7 +58,6 @@ class StreamCreateView(CreateView):
         return super().form_invalid(form)
 
 
-# 17
 class StreamStatusListView(ListView):
     model = Stream
     template_name = 'apps/admin-page/stats.html'

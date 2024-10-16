@@ -1,6 +1,6 @@
 from apps.models.proxy_manager import DriverUserManager, ManagerUserManager, OperatorUserManager, \
     AdminUserManager, UserUserManager
-from apps.models.shop import Product, Category, Order, Favourite
+from apps.models.shop import Product, Category, Order, Favourite, Competition
 from apps.models.users import User
 
 
@@ -16,6 +16,13 @@ class CategoryProxy(Category):
         proxy = True
         verbose_name = 'Categoriya'
         verbose_name_plural = 'Categoriyalar'
+
+
+class CompetitionProxy(Competition):
+    class Meta:
+        proxy = True
+        verbose_name = 'Musobaqa'
+        verbose_name_plural = 'Musobaqalar'
 
 
 class OrderProxy(Order):
