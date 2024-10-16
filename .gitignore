@@ -1,0 +1,4 @@
+.gitignore
+media
+db.sqlite3
+.idea
